@@ -3,5 +3,10 @@
 {% block title %}BookBundle:Person:id{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Person:id page</h1>
+
+        {{ person.name }} <br>
+        {{ person.surname }} <br>
+        {{ person.description }} <br>
+        {{ person.photo }} <br>
+
 {% endblock %}

@@ -3,5 +3,11 @@
 {% block title %}BookBundle:Person:showAll{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Person:showAll page</h1>
+    {% for i in all %}
+        {{ i.name }} <br>
+        {{ i. surname }} <br>
+        {{ i.description }} <br>
+        {{ i.photo }} <br>
+        <hr>
+    {% endfor %}    
 {% endblock %}
