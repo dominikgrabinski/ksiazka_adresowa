@@ -1,0 +1,17 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}BookBundle:Person:showAll{% endblock %}
+
+{% block body %}
+    {% for i in all %}
+        {{ i.city }} <br>
+        {{ i. street }} <br>
+        {{ i.homeNumber }} <br>
+        {{ i.flatNumber }} <br>
+{#        {{ i.person }} <br>
+        {% for j in i.person %}
+            {{ i.person }} <br>
+        {% endfor %}#}
+        <hr>
+    {% endfor %}    
+{% endblock %}

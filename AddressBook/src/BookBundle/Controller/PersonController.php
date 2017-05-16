@@ -132,9 +132,9 @@ class PersonController extends Controller
             $url = false,
             $label = 'Create Address'
             ){
-//        if($url == false){
-//            $url = $this->generateUrl('book_address_new');
-//        }
+        if($url == false){
+            $url = $this->generateUrl('book_person_newaddress');
+        }
         $form = $this->createFormBuilder($address)
                 ->setAction($url)
                 ->setMethod('POST')
@@ -164,7 +164,7 @@ class PersonController extends Controller
             $em->persist($newAddress);
             $em->flush();
             
-        //    return $this->redirect($this->generateUrl('book_address_showall'));
+            return $this->redirect($this->generateUrl('book_person_showalladdressess'));
         }
         
         return $this->render('BookBundle:Person:newAddress.html.twig', array(
@@ -172,6 +172,16 @@ class PersonController extends Controller
         ));
     }    
     
-    
+    /**
+     * @Route("/showAllAddressess")
+     */
+    public function showAllAddressessAction()
+    {
+        $repo3 = $this->getDoctrine()->getRepository('BookBundle:Address')->findAll();
+        //$count = count($repo2);
+        return $this->render('BookBundle:Person:show_all_addressess.html.twig', array(
+            'all' => $repo3 //, 'number' => $count
+        ));
+    }    
     
 }

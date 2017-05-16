@@ -180,4 +180,8 @@ class Address
     {
         return $this->person;
     }
+    
+//        public function __toString() {
+//         $this->person;
+//    }
 }
