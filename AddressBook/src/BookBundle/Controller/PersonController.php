@@ -97,23 +97,12 @@ class PersonController extends Controller
 //        ));
     }
 
-
-
-    /**
-     * @Route("/showAll")
-     */
-    public function showAllAction()
-    {
-        $repo2 = $this->getDoctrine()->getRepository('BookBundle:Person')->findAll();
-        //$count = count($repo2);
-        return $this->render('BookBundle:Person:show_all.html.twig', array(
-            'all' => $repo2 //, 'number' => $count
-        ));
-    }
+   
 
     /**
      * @Route("/show/{id}")
      */
+
     public function idAction($id)
     {
         $repo = $this->getDoctrine()->getRepository('BookBundle:Person')->find($id);
@@ -125,8 +114,21 @@ class PersonController extends Controller
         return $this->render('BookBundle:Person:id.html.twig', array(
             'person' => $repo //, 'number' => $count
         ));
-    }
+    }    
 
+    /**
+     * @Route("/showAll")
+     */
+
+    public function showAllAction()
+    {
+        $repo2 = $this->getDoctrine()->getRepository('BookBundle:Person')->findAll();
+        //$count = count($repo2);
+        return $this->render('BookBundle:Person:show_all.html.twig', array(
+            'all' => $repo2 //, 'number' => $count
+        ));
+    }     
+    
     private function getAddressForm(
             $address,
             $url = false,
